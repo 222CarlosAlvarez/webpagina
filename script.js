@@ -1,5 +1,5 @@
 // Configuración de conexión (Usa solo la URL base hasta .co)
-const URL_PROYECTO = 'https://bkzvyoqdvxahwuakptwf.supabase.co'; 
+const URL_PROYECTO = 'https://fkkxkswgwbeaorsxumrc.supabase.co'; 
 const KEY_ANONIMA = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZra3hrc3dnd2JlYW9yc3h1bXJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcxMzA5ODAsImV4cCI6MjA5MjcwNjk4MH0.dYS8r4qA-Kja7-pppLTtseJuzM1LHAvw5zU0-agB98Q';
 
 // Evitamos el nombre "supabase" para que no choque con la librería global
