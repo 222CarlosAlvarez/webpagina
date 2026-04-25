@@ -1,0 +1,277 @@
+    :root {
+      --red:     #C8102E;
+      --red-dk:  #8B0000;
+      --gold:    #F5C500;
+      --cream:   #FFF8EE;
+      --dark:    #1A0A00;
+      --card-bg: #FFFFFF;
+      --shadow:  rgba(200,16,46,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--cream);
+      color: var(--dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO HEADER ─────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, var(--red-dk) 0%, var(--red) 60%, #E8201A 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,0.04) 18px,
+        rgba(255,255,255,0.04) 36px
+      );
+    }
+    .header-inner {
+      position: relative;
+      max-width: 860px;
+      margin: auto;
+      padding: 48px 24px 36px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .logo-circle {
+      flex-shrink: 0;
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 42px;
+      color: var(--red-dk);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    .header-text h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      color: var(--gold);
+      letter-spacing: 3px;
+      line-height: 1;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+    .header-text p {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* ── MAIN LAYOUT ─────────────────────────────── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    /* ── FORM CARD ───────────────────────────────── */
+    .form-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 8px 40px var(--shadow);
+      border-top: 6px solid var(--red);
+      position: relative;
+    }
+    .form-card h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .form-card h2::after {
+      content: '';
+      flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--red-dk);
+      margin-bottom: 6px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #E8D5D0;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      background: #FFF9F7;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      resize: vertical;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(200,16,46,0.12);
+    }
+    .field { margin-bottom: 20px; }
+
+    .error-msg {
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-top: 4px;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--red) 0%, var(--red-dk) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 18px var(--shadow);
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--shadow); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .success-banner {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #E9F7EF;
+      border: 2px solid #2ECC71;
+      border-radius: 10px;
+      color: #1A7A40;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: none;
+      text-align: center;
+    }
+    .success-banner.visible { display: block; animation: popIn .35s ease; }
+
+    /* ── MESSAGES SECTION ────────────────────────── */
+    .messages-section h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .messages-section h2::after {
+      content: '';
+      flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    .messages-count {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    #messages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .msg-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      border-left: 4px solid var(--gold);
+      animation: slideIn .4s ease;
+    }
+    .msg-card:nth-child(even) { border-left-color: var(--red); }
+
+    .msg-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .msg-card:nth-child(even) .avatar { background: var(--gold); color: var(--dark); }
+
+    .msg-name {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+    .msg-date {
+      font-size: 0.75rem;
+      color: #AAA;
+      margin-left: auto;
+    }
+    .msg-text {
+      font-size: 0.97rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px 20px;
+      color: #CCC;
+      font-size: 1rem;
+    }
+    .empty-state span { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+    /* ── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--red-dk);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.82rem;
+    }
+    footer strong { color: var(--gold); }
+
+    /* ── ANIMATIONS ──────────────────────────────── */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }

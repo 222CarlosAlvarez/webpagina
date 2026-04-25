@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KFC Guatemala – Libro de Visitas</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="logo-circle">KFC</div>
+        <div class="header-text">
+          <h1>Libro de Visitas</h1>
+          <p>¡Comparte tu experiencia con nosotros! 🍗</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- FORM CARD -->
+      <section class="form-card">
+        <h2>✍️ Deja tu Mensaje</h2>
+
+        <div class="field">
+          <label for="inp-name">Tu Nombre</label>
+          <input
+            type="text"
+            id="inp-name"
+            placeholder="Ej. María García"
+            maxlength="80"
+          />
+          <div class="error-msg" id="err-name">
+            Por favor ingresa tu nombre.
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="inp-msg">Tu Mensaje</label>
+          <textarea
+            id="inp-msg"
+            rows="4"
+            placeholder="¡El pollo estaba increíble! Me encantó la atención…"
+            maxlength="400"
+          ></textarea>
+          <div class="error-msg" id="err-msg">
+            Por favor escribe un mensaje.
+          </div>
+        </div>
+
+        <button class="btn-submit" id="btn-send" onclick="submitMessage()">
+          📮 Enviar Mensaje
+        </button>
+        <div class="success-banner" id="success-banner">
+          ✅ ¡Gracias! Tu mensaje ha sido publicado con éxito.
+        </div>
+      </section>
+
+      <!-- MESSAGES LIST -->
+      <section class="messages-section">
+        <h2>💬 Mensajes de Visitantes</h2>
+        <div class="messages-count" id="msg-count">Cargando mensajes…</div>
+        <div id="messages-list">
+          <div class="empty-state">
+            <span>🍗</span>
+            Aún no hay mensajes. ¡Sé el primero!
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2024 <strong>KFC Guatemala</strong> — Libro de Visitas Digital
+      &nbsp;|&nbsp; Todos los derechos reservados
+    </footer>
+    <button onclick="clearMessages()" style="margin-top: 10px">
+      🗑️ Borrar todos los mensajes
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
